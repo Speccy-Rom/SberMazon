@@ -153,4 +153,6 @@ dev.py
 static/
 
 # media files
-media/
+media/!/pgadmin/
+!/pgdata/
+!/queries.yaml/
