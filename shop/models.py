@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse_lazy
 
 
 class Category(models.Model):
@@ -13,9 +14,14 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse_lazy('shop: product_list_by_category', args=[self.slug])
+
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name="products", on_delete=models.CASCADE)
+    category = models.ForeignKey(
+        Category, related_name="products", on_delete=models.CASCADE
+    )
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, unique=True)
     image = models.ImageField(upload_to="products/%Y/%m/%d", blank=True)
@@ -28,6 +34,11 @@ class Product(models.Model):
     class Meta:
         ordering = ("name",)
         index_together = (("id", "slug"),)
+        verbose_name = "Товар"
+        verbose_name_plural = "Товары"
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse_lazy('shop: product_detail', args=[self.id, self.slug])
