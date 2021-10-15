@@ -34,5 +34,9 @@ def cart_detail(request):
     """Отображает корзину, основываясь на данных, сохраненных в сессии request.session."""
     context = {}
     cart = Cart(request)
+    for item in cart:
+        item["update_quantity_form"] = CartAddProductForm(
+            initial={"quantity": item["quantity"], "update": True}
+        )  # Изменение количества товаров в корзине
     context["cart"] = cart
     return render(request, "cart/detail.html", context)
