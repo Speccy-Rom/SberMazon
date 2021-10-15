@@ -8,14 +8,15 @@ from shop.models import Product
 class Cart(object):
     def __init__(self, request):
         """Инициализация объекта корзины."""
-        self.sessions = request.session
-        cart = self.sessions.get(settings.CART_SESSION_ID)
+        self.session = request.session
+        cart = self.session.get(settings.CART_SESSION_ID)
         if not cart:
             # Сохраняем в сессии пустую корзину.
-            cart = self.sessions[settings.CART_SESSION_ID] = {}
+            cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart
 
     def add(self, product, quantity=1, update_quantity=False):
+        """Добавление товара в корзину или обновление его количества."""
         product_id = str(product.id)
         if product_id not in self.cart:
             self.cart[product_id] = {"quantity": 0, "price": str(product.price)}
