@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 
 from cart.cart import Cart
@@ -23,7 +23,7 @@ def cart_add(request, product_id):
 
 
 def cart_remove(request, product_id):
-    """Удаление товара из корзины"""
+    """Удаление товара из корзины."""
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
@@ -36,7 +36,7 @@ def cart_detail(request):
     cart = Cart(request)
     for item in cart:
         item["update_quantity_form"] = CartAddProductForm(
-            initial={"quantity": item["quantity"], "update": True}
-        )  # Изменение количества товаров в корзине
+            initial={"quantity": item["quantity"], "update": True},
+        )  # Изменение количества товаров в корзине.
     context["cart"] = cart
     return render(request, "cart/detail.html", context)
