@@ -14,7 +14,7 @@
         Your cart:
         <a href="{% url "cart_detail" %}">
             {{ total_items }} item{{ total_items|pluralize }},
-            ${{ cart.get_total_price }} </a>
+            {{ cart.get_total_price }} руб. </a>
     {% else %}
         Your cart is empty.
     {% endif %} {% endwith %}
