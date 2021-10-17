@@ -1,25 +1,26 @@
-## SberMazon - global marketplace
+### SberMazon - global marketplace
 ___
 
 ##### professional marketplace for the sale of services, goods. You can sell your goods in an online shop on a suitable marketplace.
 
-### в данном проекте реализованы следующие возможности
+### the following features are implemented in this project
 
-* создание каталога товаров;
-* реализация корзины товаров с помощью сессий Django;
-* управление заказами покупателей;
-* отправка асинхронных уведомлений с помощью Celery / Rabbitmq;
-* подключение платежной системы к проекту;
-* экспорт заказов в CSV;
-* создание собственных обработчиков для сайта администрирования;
-* динамическое формирование счетов в формате PDF;
-* создание системы купонов и скидок;
-* добавление переводов на сайте;
-* локализация моделей с помощью django-parler;
-* добавление рекомендаций товаров для покупателей.
+* creating a product catalogue;
+* implementation of a shopping cart using Django sessions;
+* management of customer orders;
+* sending asynchronous notifications via Celery / Rabbitmq;
+* connecting payment system to the project;
+* export orders to CSV;
+* creating custom handlers for the administration website;
+* dynamic generation of invoices in PDF format;
+* creating a system of coupons and discounts;
+* adding translations on the website;
+* model localization using django-parler;
+* adding product recommendations for customers.
 
 
-В проекте задействованы такие технологии как:
+
+The project involves technologies such as:
 
 * Python 3
 * Django
@@ -32,5 +33,6 @@ ___
 
 
 ### Проект находится в разработке ...
+### The project is under development ...
 ___
 
