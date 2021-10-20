@@ -1,4 +1,5 @@
 import os
+from braintree import Configuration, Environment
 from pathlib import Path
 
 from decouple import config
@@ -147,3 +148,14 @@ CART_SESSION_ID = "cart"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# Настройки Braintree.
+BRAINTREE_MERCHANT_ID = config('BRAINTREE_MERCHANT_ID')  # ID продавца.
+BRAINTREE_PUBLIC_KEY = config('BRAINTREE_PUBLIC_KEY')  # Публичный ключ.
+BRAINTREE_PRIVATE_KEY = config('BRAINTREE_PRIVATE_KEY')  # Секретный ключ.
+
+Configuration.configure(
+    Environment.Sandbox,  # для PROD (Environment.Production)
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
