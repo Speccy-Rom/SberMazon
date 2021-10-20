@@ -1,7 +1,7 @@
 import os
-from braintree import Configuration, Environment
 from pathlib import Path
 
+from braintree import Configuration, Environment
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -31,10 +31,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "shop.apps.ShopConfig",
     "cart.apps.CartConfig",
     "orders.apps.OrdersConfig",
+    "payment.apps.PaymentConfig",
 ]
 
 MIDDLEWARE = [
@@ -146,16 +146,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Ключ, по которому мы будем хранить данные корзины в сессии.
 CART_SESSION_ID = "cart"
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Настройки Braintree.
-BRAINTREE_MERCHANT_ID = config('BRAINTREE_MERCHANT_ID')  # ID продавца.
-BRAINTREE_PUBLIC_KEY = config('BRAINTREE_PUBLIC_KEY')  # Публичный ключ.
-BRAINTREE_PRIVATE_KEY = config('BRAINTREE_PRIVATE_KEY')  # Секретный ключ.
+BRAINTREE_MERCHANT_ID = config("BRAINTREE_MERCHANT_ID")  # ID продавца.
+BRAINTREE_PUBLIC_KEY = config("BRAINTREE_PUBLIC_KEY")  # Публичный ключ.
+BRAINTREE_PRIVATE_KEY = config("BRAINTREE_PRIVATE_KEY")  # Секретный ключ.
 
 Configuration.configure(
     Environment.Sandbox,  # для PROD (Environment.Production)
     BRAINTREE_MERCHANT_ID,
     BRAINTREE_PUBLIC_KEY,
-    BRAINTREE_PRIVATE_KEY
+    BRAINTREE_PRIVATE_KEY,
 )
