@@ -9,9 +9,8 @@ python-decouple = "*"
 psycopg2-binary = "*"
 pillow = "*"
 products = "*"
-celery = "==4.4.7"
-flower = "==0.9.7"
 braintree = "*"
+celery = "==4.4.7"
 
 [dev-packages]
 flake8 = "*"
