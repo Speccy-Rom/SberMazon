@@ -13,6 +13,7 @@ braintree = "*"
 celery = "==4.4.7"
 django-celery-results = "==2.0.0"
 flower = "==0.9.7"
+weasyprint = "==0.42.3"
 
 [dev-packages]
 flake8 = "*"
