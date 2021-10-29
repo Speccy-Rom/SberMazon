@@ -4,7 +4,7 @@ from io import BytesIO
 
 import braintree
 from django.core.mail import EmailMessage
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 
 from orders.models import Order

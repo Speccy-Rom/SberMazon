@@ -1,8 +1,8 @@
 from celery import task
 from django.core.mail import send_mail
 
-from orders.models import Order
 from core.celery import app
+from orders.models import Order
 
 
 @task
