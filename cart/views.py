@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
+
+from coupons.forms import CouponApplyForm
 from shop.models import Product
+
 from .cart import Cart
 from .forms import CartAddProductForm
-from coupons.forms import CouponApplyForm
 
 
 @require_POST  # обернули функцию cart_add() декоратором require_POST, чтобы обратиться к ней можно было только
