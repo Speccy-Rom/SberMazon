@@ -3,6 +3,7 @@ from pathlib import Path
 
 from braintree import Configuration, Environment
 from decouple import config
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR = Path(__file__).parent
@@ -125,8 +126,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = "en"
 
 LANGUAGES = (
-    ('en', 'English'),
-    ('es', 'Spanish'),
+    ("en", _("English")),
+    ("es", _("Spanish")),
 )
 
 TIME_ZONE = "UTC"
@@ -181,4 +182,4 @@ CELERY_TIMEZONE = "Europe/Moscow"
 CELERY_BEAT_SCHEDULE = {}
 
 # LOCALE_PATHS определяет каталоги, в которых Django ищет файлы переводов.
-LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'),)
+LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
