@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
+
 from braintree import Configuration, Environment
 from decouple import config
-
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     "django_celery_results",
     "rosetta",
+    'parler',
 ]
 
 MIDDLEWARE = [
@@ -199,3 +200,10 @@ LOCALE_PATHS = (
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
+
+PARLER_LANGUAGES = {None: (
+    {'code': 'en'},
+    {'code': 'es'},),
+    'default': {
+        'fallback': 'en', 'hide_untranslated': False,
+    }}

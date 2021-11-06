@@ -16,6 +16,7 @@ flower = "==0.9.7"
 amqp = "==5.0.6"
 vine = "==1.3.0"
 django-rosetta = "*"
+django-parler = "*"
 
 [dev-packages]
 flake8 = "*"
