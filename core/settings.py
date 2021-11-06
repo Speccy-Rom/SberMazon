@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
-
 from braintree import Configuration, Environment
 from decouple import config
+
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -165,11 +165,17 @@ BRAINTREE_MERCHANT_ID = config("BRAINTREE_MERCHANT_ID")  # ID продавца.
 BRAINTREE_PUBLIC_KEY = config("BRAINTREE_PUBLIC_KEY")  # Публичный ключ.
 BRAINTREE_PRIVATE_KEY = config("BRAINTREE_PRIVATE_KEY")  # Секретный ключ.
 
-Configuration.configure(
-    Environment.Sandbox,  # для PROD (Environment.Production)
+# Configuration.configure(
+#     Environment.Sandbox,  # для PROD (Environment.Production)
+#     BRAINTREE_MERCHANT_ID,
+#     BRAINTREE_PUBLIC_KEY,
+#     BRAINTREE_PRIVATE_KEY,
+# )
+BRAINTREE_CONF = Configuration(
+    Environment.Sandbox,
     BRAINTREE_MERCHANT_ID,
     BRAINTREE_PUBLIC_KEY,
-    BRAINTREE_PRIVATE_KEY,
+    BRAINTREE_PRIVATE_KEY
 )
 
 CELERY_RESULT_BACKEND = "django-db"
@@ -185,4 +191,11 @@ CELERY_TIMEZONE = "Europe/Moscow"
 CELERY_BEAT_SCHEDULE = {}
 
 # LOCALE_PATHS определяет каталоги, в которых Django ищет файлы переводов.
-LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "locale"),
+    os.path.join(BASE_DIR, "orders/locale"),
+)
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1
