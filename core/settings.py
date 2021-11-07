@@ -193,8 +193,8 @@ CELERY_BEAT_SCHEDULE = {}
 
 # LOCALE_PATHS определяет каталоги, в которых Django ищет файлы переводов.
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, "locale"),
-    os.path.join(BASE_DIR, "orders/locale"),
+    os.path.join(BASE_DIR, "locale/"),
+    os.path.join(BASE_DIR, "orders/locale/"),
 )
 
 REDIS_HOST = 'localhost'
