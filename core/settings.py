@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django_celery_results",
     "rosetta",
     'parler',
+    'localflavor',
 ]
 
 MIDDLEWARE = [
@@ -201,9 +202,13 @@ REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
 
-PARLER_LANGUAGES = {None: (
-    {'code': 'en'},
-    {'code': 'es'},),
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'es'},
+    ),
     'default': {
-        'fallback': 'en', 'hide_untranslated': False,
-    }}
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
