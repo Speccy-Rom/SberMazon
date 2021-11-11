@@ -1,0 +1,4 @@
+Django~=3.2.8
+celery~=4.4.7
+braintree~=4.12.0
+django-parler~=2.2.1
