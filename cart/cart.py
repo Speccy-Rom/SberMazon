@@ -73,9 +73,7 @@ class Cart(object):
     @property
     def coupon(self):
         # Если у корзины задан атрибут coupon_id, это свойство будет возвращать соответствующий объект купона.
-        if self.coupon_id:
-            return Coupon.objects.get(id=self.coupon_id)
-        return None
+        return Coupon.objects.get(id=self.coupon_id) if self.coupon_id else None
 
     def get_discount(self):
         # возвращает размер скидки, если у корзины есть значение в атрибуте coupon_id.

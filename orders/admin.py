@@ -11,18 +11,17 @@ from orders.models import OrderItem
 
 def order_detail(obj):
     return mark_safe(
-        '<a href="{}">View</a>'.format(
-            reverse("orders:admin_order_detail", args=[obj.id])
-        )
+        f'<a href="{reverse("orders:admin_order_detail", args=[obj.id])}">View</a>'
     )
 
 
 def export_to_csv(modeladmin, request, queryset):
     opts = modeladmin.model._meta
     response = HttpResponse(content_type="text/csv")
-    response["Content-Disposition"] = "attachment;" "filename={}.csv".format(
-        opts.verbose_name
-    )
+    response[
+        "Content-Disposition"
+    ] = f"attachment;filename={opts.verbose_name}.csv"
+
     writer = csv.writer(response)
 
     fields = [
@@ -54,9 +53,7 @@ class OrderItemInline(admin.TabularInline):
 
 def order_pdf(obj):
     return mark_safe(
-        '<a href="{}">PDF</a>'.format(
-            reverse("orders:admin_order_pdf", args=[obj.id])
-        )
+        f'<a href="{reverse("orders:admin_order_pdf", args=[obj.id])}">PDF</a>'
     )
 
 

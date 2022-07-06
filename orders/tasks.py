@@ -12,5 +12,4 @@ def order_created(order_id):
     subject = f"Order nr. {order.id}"
     message = f"Dear {order.first_name},\n\nYou have successfully placed an order.\
                   Your order id is {order.id}."
-    mail_sent = send_mail(subject, message, "ninda.xd@gmail.com", [order.email])
-    return mail_sent
+    return send_mail(subject, message, "ninda.xd@gmail.com", [order.email])
